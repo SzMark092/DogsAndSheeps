@@ -1,6 +1,10 @@
 import java.util.concurrent.TimeUnit;
 
 public class Sheep extends Moveable implements Runnable{
+    Sheep(String name){
+        super(name);
+    }
+
     @Override
     protected boolean move() {
         try {
@@ -17,7 +21,7 @@ public class Sheep extends Moveable implements Runnable{
             }
             
             if (farm.getBlock(nextPosition) instanceof Door){
-                farm.changeMovementFinished();
+                farm.setMovementFinished(true);
                 return true;
             }
 

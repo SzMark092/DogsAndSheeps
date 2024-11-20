@@ -1,3 +1,5 @@
 public class Door extends Block {
-    Door(){}
+    Door(){
+        super(" ");
+    }
 }

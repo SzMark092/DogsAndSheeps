@@ -4,7 +4,9 @@ public abstract class Moveable extends Block  {
     protected static boolean movementFinished;
     public  Vector coordinates;
     protected Farm farm;
-
+    Moveable(String name){
+        super(name);
+    }
     protected abstract boolean move();
     protected abstract Vector getDirection();
 
