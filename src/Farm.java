@@ -5,7 +5,7 @@ public class Farm {
     private Block[][] field;
     private final ReentrantLock lock;
     private boolean movementfinished;
-
+    public Zones zones;
     Farm(int sizeX, int sizeY) {
         field = new Block[3 * sizeX + 2][3 * sizeY + 2];
         lock = new ReentrantLock();
@@ -19,17 +19,9 @@ public class Farm {
         field[coord.x][coord.y] = newBlock;
     }
 
-    public void setBlock(Vector coord, Block newBlock, int zone) {
-        Random rand = new Random();
-        int x = 0;
-        int y = 0;
-        
-        do {
-            x =rand.nextInt(field.length);
-            y=(zone/((x-2)/3))*3+2;
-        } while (!getBlock(new Vector(x, y)).CanBePassed());
-
-        field[x][y] = newBlock;
+    public void setAnimal(Moveable newAnimal, int zone) {
+        newAnimal.coordinates=this.zones.getZone(zone).getCoord();
+        field[newAnimal.coordinates.x][newAnimal.coordinates.y] = newAnimal;
     }
 
     public void lock() {

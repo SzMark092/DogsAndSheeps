@@ -1,5 +1,3 @@
-import java.util.concurrent.TimeUnit;
-
 public class Sheep extends Moveable implements Runnable{
     Sheep(String name){
         super(name);

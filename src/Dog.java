@@ -1,5 +1,3 @@
-import java.util.concurrent.TimeUnit;
-
 public class Dog extends Moveable implements Runnable {
 
     Dog(String name){
